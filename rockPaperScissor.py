@@ -1,15 +1,16 @@
 import random
 
-# This will return the choice of the computer
+# This will return the choice of the computer.
 def comp_choice():
     choices=["rock","paper","scissor"]
     return random.choice(choices)
 
+# This will return the winner.
 def find_winner(uc, cc):
     if uc==cc:
         return "draw"
     
-    elif ((uc=="rock" and cc== "scissor")
+    elif ((uc=="rock" and cc== "scissor")          # uc-User Choice, cc-Computer Choice
           or(uc == "scissor" and cc == "paper")
           or(uc == "paper" and cc == "rock")):
         return "Player"
@@ -17,12 +18,13 @@ def find_winner(uc, cc):
     else:
         return "Computer"
     
+# Game starts from here
 def play_game():
-    cs=0
+    cs=0             # initialize score with 0        cs-Computer Score, ps-Player Score
     ps=0
-    while True:
+    while True:              #the loop will circulate until you don't quit the game
         print("Rock, Paper, Scissor - Choose your move:")
-        uc=input("Enter 'Rock', 'Paper', 'Scissor' (or 'quit' to stop playing): ").lower()
+        uc=input("Enter 'Rock', 'Paper', 'Scissor' (or 'quit' to stop playing): ").lower()      
         if (uc=='quit'):
             break
 
@@ -40,8 +42,6 @@ def play_game():
         elif (result == "Computer"):
             print("Computer win this match!")
             cs+=1
-            print("="*80)
-
         else:
             print("It's a draw")
         print(f"Score \n Computer : {cs} \n Player : {ps}\n\n")
@@ -52,5 +52,6 @@ def play_game():
     print("Player Score : ",ps)
     print("Thanks for playing")
 
+# Program starts from here.
 if __name__ == "__main__":
     play_game()
